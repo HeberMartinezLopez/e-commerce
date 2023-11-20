@@ -3,10 +3,14 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-router.get('/', async(req, res) => {
+router.get('/', async(__req, res) => {
+  // find all categories
+  // be sure to include its associated Products
   try {
     const categoryInfo = await Category.findAll({
-      include: [Product]
+      include: [
+        Product
+      ]
     });
     res.json(categoryInfo);
 
@@ -14,28 +18,29 @@ router.get('/', async(req, res) => {
     console.log(error);
     res.status(500).json(error);
   }
-  // find all categories
-  // be sure to include its associated Products
 });
 
 router.get('/:id', async(req, res) => {
+  // find one category by its `id` value
+  // be sure to include its associated Products
   try {
     const categoryInfo = await Category.findOne({
       where: {
         id: req.params.id
       },
-      include: [Product]
+      include: [
+        Product
+      ]
     })
     res.json(categoryInfo)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
   }
-  // find one category by its `id` value
-  // be sure to include its associated Products
 });
 
 router.post('/', async(req, res) => {
+  // create a new category
   try {
     const categoryInfo = await Category.create(req.body)
     res.json(categoryInfo)
@@ -43,10 +48,10 @@ router.post('/', async(req, res) => {
     console.log(error)
     res.status(500).json(error)
   }
-  // create a new category
 });
 
 router.put('/:id', async(req, res) => {
+  // update a category by its `id` value
   try {
     const categoryInfo = await Category.update(req.body, {
       where: {
@@ -58,20 +63,21 @@ router.put('/:id', async(req, res) => {
     console.log(error)
     res.status(500).json(error)
   }
-  // update a category by its `id` value
 });
 
 router.delete('/:id', async(req, res) => {
+  // delete a category by its `id` value
   try {
     const categoryInfo = await Category.destroy({
-      where: { id: req.params.id}
+      where: { 
+        id: req.params.id
+      }
     })
     res.json(categoryInfo)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
   }
-  // delete a category by its `id` value
 });
 
 module.exports = router;
