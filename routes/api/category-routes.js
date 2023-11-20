@@ -20,7 +20,13 @@ router.get('/', async(req, res) => {
 
 router.get('/:id', async(req, res) => {
   try {
-    
+    const categoryInfo = await Category.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [Product]
+    })
+    res.json(categoryInfo)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -31,7 +37,8 @@ router.get('/:id', async(req, res) => {
 
 router.post('/', async(req, res) => {
   try {
-    
+    const categoryInfo = await Category.create(req.body)
+    res.json(categoryInfo)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -41,7 +48,12 @@ router.post('/', async(req, res) => {
 
 router.put('/:id', async(req, res) => {
   try {
-    
+    const categoryInfo = await Category.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+    res.json(categoryInfo)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -51,7 +63,10 @@ router.put('/:id', async(req, res) => {
 
 router.delete('/:id', async(req, res) => {
   try {
-    
+    const categoryInfo = await Category.destroy({
+      where: { id: req.params.id}
+    })
+    res.json(categoryInfo)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
