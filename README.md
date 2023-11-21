@@ -96,7 +96,7 @@ Click link below to see a video demonstration of these steps>
 
 Video Link
 
-[]()
+[https://drive.google.com/file/d/1WF6ejEV--wBFAxKkS41TvMy2O6jsDVL-/view?usp=sharing](https://drive.google.com/file/d/1WF6ejEV--wBFAxKkS41TvMy2O6jsDVL-/view?usp=sharing)
 
 ## Questions
 
