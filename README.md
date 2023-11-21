@@ -92,7 +92,7 @@ Create a DELETE request to delete a:
 2. Product enter `/products/:id`
 3. Tag enter `/tags/:id`
 
-Click link below to see a video demonstration of these steps>
+Click link below to see a video demonstration of these steps
 
 Video Link
 
